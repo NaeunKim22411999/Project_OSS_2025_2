@@ -47,6 +47,18 @@ class Calculator:
 
         self.entry.delete(0, tk.END)
         self.entry.insert(tk.END, self.expression)
+        self.last_result = None  # <<추가: 마지막 계산 결과 저장>>
+        
+        # 버튼 목록
+        buttons = [
+        ['7', '8', '9', '/'],
+        ['4', '5', '6', '*'],
+        ['1', '2', '3', '-'],
+        ['0', '.', 'C', '+'],
+        ['=', 'Ans']  # <<추가: Ans 버튼 - 마지막 결과 재사용>>
+        ]
+
+
 
 
 
