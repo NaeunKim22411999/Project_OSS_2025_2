@@ -8,18 +8,19 @@ class Calculator:
         self.root.geometry("300x400")
 
         self.expression = ""
+        self.last_result = None  #추가
 
         # 입력창
         self.entry = tk.Entry(root, font=("Arial", 24), justify="right")
         self.entry.pack(fill="both", ipadx=8, ipady=15, padx=10, pady=10)
 
-        # 버튼 생성
+        # 버튼 생성 (AC버튼 추가)
         buttons = [
             ['7', '8', '9', '/'],
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['AC', '=']
         ]
 
         for row in buttons:
@@ -37,6 +38,10 @@ class Calculator:
     def on_click(self, char):
         if char == 'C':
             self.expression = ""
+        #AC 추가
+        elif char == 'AC': 
+            self.expression = ""
+            self.last_result = None
         elif char == '=':
             try:
                 self.expression = str(eval(self.expression))
